@@ -36,7 +36,28 @@ app.get('/api/worship', function (req, res) {
       }
       res.json(songs);  //  song data exported in json format
     });
-});  //  app.get('/api/worship', function (req, res) {
+});  //  app.get('/api/worship', function (req, res) 
+
+app.get('/api/profile', function (req, res) {
+  // app is the express server, setting up to read app/worship
+  // db.Profile.find({})
+  //   // .populate('author')  - for later
+  //   .exec(function(err, myself){ 
+  //     if (err) {
+  //       res.status(500).send(err);
+  //       return;
+  //     }
+  //     res.json(myself);  //   data exported in json format
+  //   });
+  res.json({
+    name: "Michael Laird",
+    githubUsername: "MJ-sfo",
+    githubProfileImage: "https://avatars3.githubusercontent.com/u/22490639?v=3&amp;u=ff9c0242d41c02b1c5f9d88081286f33188ab82d&amp;s=400",
+    githubLink: "https://github.com/settings/profile",
+    city: "San Fran",
+    pets: "Heck No !!"
+  })
+});  //  app.get('/api/worship', function (req, res) 
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
