@@ -19,11 +19,24 @@ app.use(function(req, res, next) {
  * DATABASE *
  ************/
 
-// var db = require('./models');
+var db = require('./models');
 
 /**********
  * ROUTES *
  **********/
+
+app.get('/api/worship', function (req, res) {
+  // app is the express server, setting up to read app/worship
+  db.Worship.find({})
+    // .populate('author')  - for later
+    .exec(function(err, songs){  //  songs here must match songs in json
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      res.json(songs);  //  song data exported in json format
+    });
+});  //  app.get('/api/worship', function (req, res) {
 
 // Serve static files from the `/public` directory:
 // i.e. `/images`, `/scripts`, `/styles`
